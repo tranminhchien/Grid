@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="d1" class="image-galley">
+            <div class="img-1"></div>
+            <div class="img-2"></div>
+            <div class="img-3"></div>
+            <div class="img-4"></div>
+            <div class="img-5"></div>
+            <div class="img-6"></div>
+            <div class="img-7"></div>
+            <div class="img-8"></div>
+        </div>
+        
+        <div id="d2" style="display: none;" class="image-galley">
+            <div class="img-1"></div>
+            <div class="img-2"></div>
+            <div class="img-3"></div>
+            <div class="img-4"></div>
+            <div class="img-5"></div>
+            <div class="img-6"></div>
+            <div class="img-7"></div>
+            <div class="img-8"></div>
+        </div>
+        <div class="dot-list" style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span>  
+        </div>
+    </div>
+    <script>
+        
+        var n = 1;
+        currentSlide(n);
+        function currentSlide(n) {
+            var i;
+           
+            var dots = document.getElementsByClassName("dot");
+            
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+              
+            dots[n-1].className += " active";
+            if(n == 2)
+            {
+                document.getElementById("d1").style.display = "none";
+                document.getElementById("d2").style.display = "grid";
+                
+            }
+            else{
+                
+                document.getElementById("d1").style.display = "grid";
+                document.getElementById("d2").style.display = "none";
+            }
+           
+        }
+    </script>
+</body>
+</html>
